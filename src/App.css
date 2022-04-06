@@ -1,44 +1,98 @@
-.App {
+
+
+/* CSS de la lista de personajes */
+
+body {
+  display:flex;
+  background-image: url(/public/fondo.jpg);
+  background-attachment: fixed;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+/* De la linea 12 a la 62 es css de la lista de Personajes. De la 64 en adelante el CSS corresponde a la vista de PJ por ID */
+h2 {
+  display:flex;
+  font-size: 48px;
+  background-color: white;
+  border-radius: 18px;
+  justify-content: center;
+}
+
+/* CSS del elemento Lu */
+.contenedorGeneral ul{
+  display:flex; 
+  flex-direction: row;
+  flex-wrap:wrap;
+}
+
+/* CSS del elemento Li */
+.contenedorIndividual {
+  padding: 5px;
+  flex: 25%;
+  margin:15px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.contenedorIndividual img {
+  border:rgb(0, 0, 0) 2px solid;
+  box-shadow: 1px 0px 24px 10px rgba(0,0,0,0.69);
+  -webkit-box-shadow: 1px 0px 24px 10px rgba(0,0,0,0.69);
+  -moz-box-shadow: 1px 0px 24px 10px rgba(0,0,0,0.69);
+  width: 50%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-h3 a {
+/* Con esto hago que el nombre que es un link no se vea como un link */
+.contenedorIndividual h3 a {
+  font-size: 25px;
   color:black;
   text-decoration: none;
+  background-color: white;
+  border-radius: 5px;
 }
 
+/* Con esto no se ve el puntito del elemento Li */
+::marker {
+  color: transparent
+}
+
+/* Boton de paginado */
+.boton {
+  font-size: 30px;
+  color: black;
+}
+
+/* DETALLE DEL PERSONAJE */
+
+.contenedorDetalle{
+  background-color: white;
+  border:rgb(0, 0, 0) 2px solid;
+  width: 100%;
+  margin-top: 40%;
+  margin-right: 80%;
+}
+.contenedorDetalle h3 {
+  font-size: 30px;
+}
+
+.detallePersonaje{
+  padding: 5px;
+  margin:15px;
+  text-align: center;
+  align-items: center;
+  display:flex
+}
+
+.detallePersonaje img {
+  border:rgb(0, 0, 0) 2px solid; ;
+  margin:10px
+}
+
+.datosPersonaje{
+  border:rgb(0, 0, 0) 2px solid;
+  text-align: left;
+  margin:10px;
+  height: 260px;
+  padding: 20px;
+}

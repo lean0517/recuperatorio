@@ -14,7 +14,7 @@ function ListaDePersonajes(){
         .catch(error => console.error(error))
     }, [])
 
-    const CargarPagina =async() => {
+    const SiguientePagina =async() => {
         await setPagina(pagina +1);
 
         fetch(`https://rickandmortyapi.com/api/character?page=${pagina}`)
@@ -26,26 +26,28 @@ function ListaDePersonajes(){
     }
 
     return(
-        <div>
+        <div className='contenedorGeneral'>
             <h2>
-                Lista de personajes de Rick Y Morty
+                Lista de personajes de Rick Y Morty 
             </h2>
             <ul>
                 {
                     personajes.map ((personaje, i)=>{
                         return (
-                            <li key = {i}>
+                            <li className='contenedorIndividual' key = {i}>
                                  
                                 <h3>
                                     <a href={`/PersonajeId/${personaje.id}`}>{personaje.name}</a>
                                 </h3>
-                                    <img src={personaje.image} alt="imagenpersonaje" width="200"/>
+                                    <a href={`/PersonajeId/${personaje.id}`}> <img src={personaje.image} alt="imagenpersonaje" width="200"/></a>
                             </li>
                         )
                     })
                 }
-                <button onClick={CargarPagina}>Siguiente pagina</button>
+                
             </ul>
+            <button className='boton' onClick={SiguientePagina}>Siguiente página</button>
+            
         </div>
     )
 }
