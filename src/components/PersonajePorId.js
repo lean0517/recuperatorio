@@ -6,12 +6,18 @@ function PersonajePorId(){
     const [Personaje, setPersonaje] = useState({})
 
     let { id } = useParams()
+    
 
     useEffect( () => {
         fetch( `https://rickandmortyapi.com/api/character/${id}`)
         .then(response => response.json())
         .then(data => setPersonaje(data))
     }, [])
+
+    if (id>=827){
+        return (
+            <div><h1>"El personaje no existe"</h1></div>)
+    }else{
 
     return (
         <div className='contenedorDetalle'>
@@ -34,7 +40,7 @@ function PersonajePorId(){
         </div>
         </div>
     )
-   
+    }
 }
 export default PersonajePorId;
 

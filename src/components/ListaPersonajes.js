@@ -3,7 +3,23 @@ import React ,{useEffect, useState} from 'react';
 
 function ListaDePersonajes(){
     const [personajes,setPersonajes]= useState([]);
-    const [pagina, setPagina]= useState(2)
+    const [pagina, setPagina]= useState(2);
+    const [busqueda, setBusqueda] = useState("");
+
+    const valorIngresado=e =>{
+        setBusqueda(e.target.value)
+        filtrar(e.target.value)
+    }
+
+    const filtrar=(terminoDeBusqueda)=>{
+        var resultadosBusqueda=personajes.filter((element)=>{
+            if(element.name.toString().toLowerCase().includes(terminoDeBusqueda.toLowerCase())
+            || element.id.toString().includes(terminoDeBusqueda)){
+                return element
+            }
+        });
+        setPersonajes(resultadosBusqueda)
+    }
 
     useEffect(() => {
         fetch ('https://rickandmortyapi.com/api/character/')
@@ -30,6 +46,18 @@ function ListaDePersonajes(){
             <h2>
                 Lista de personajes de Rick Y Morty 
             </h2>
+            <div>
+                <input 
+                className='barraBusqueda'
+                value={busqueda}
+                placeholder="Busqueda por nombre o ID"
+                onChange={valorIngresado}
+                />
+                <button 
+                className='botonDeBusqueda'>
+                    
+                </button>
+            </div>
             <ul>
                 {
                     personajes.map ((personaje, i)=>{
