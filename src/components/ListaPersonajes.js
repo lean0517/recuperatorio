@@ -9,17 +9,10 @@ function ListaDePersonajes(){
     const valorIngresado=e =>{
         setBusqueda(e.target.value)
         filtrar(e.target.value)
+        e.preventDefault();
     }
 
-    const filtrar=(terminoDeBusqueda)=>{
-        var resultadosBusqueda=personajes.filter((element)=>{
-            if(element.name.toString().toLowerCase().includes(terminoDeBusqueda.toLowerCase())
-            || element.id.toString().includes(terminoDeBusqueda)){
-                return element
-            }
-        });
-        setPersonajes(resultadosBusqueda)
-    }
+   
 
     useEffect(() => {
         fetch ('https://rickandmortyapi.com/api/character/')
@@ -30,6 +23,14 @@ function ListaDePersonajes(){
         .catch(error => console.error(error))
     }, [])
 
+    const filtrar=(terminoDeBusqueda)=>{
+        fetch (`https://rickandmortyapi.com/api/character?name=${terminoDeBusqueda}`)
+        .then (response => response.json())
+        .then(data => {
+            setPersonajes(data.results) 
+        })
+        .catch(error => console.error(error))
+    }
     const SiguientePagina =async() => {
         await setPagina(pagina +1);
 
