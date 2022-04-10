@@ -7,7 +7,7 @@ function Home (){
     </h2>
 
     <Link to ='/ListaDePersonajes'> Todos los Persononajes</Link> <br/>
-    <Link to ='/Busqueda'> Buscar personajes</Link>
+ 
     
     </div>
 

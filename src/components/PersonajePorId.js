@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from "react";
 import { useParams } from "react-router-dom";
+import {Link} from 'react-router-dom'
 
 function PersonajePorId(){
 
@@ -16,7 +17,10 @@ function PersonajePorId(){
 
     if (id>=827){
         return (
-            <div><h1>"El personaje no existe"</h1></div>)
+            <div><h1>"El personaje no existe"</h1><br/>
+            <Link to ='/'> Volver al Home</Link>
+            </div>)
+            
     }else{
 
     return (
