@@ -6,7 +6,8 @@ function Home (){
     <h2>Hola, soy el home de Rick y Morty
     </h2>
 
-    <Link to ='/ListaDePersonajes'> Todos los Persononajes</Link>
+    <Link to ='/ListaDePersonajes'> Todos los Persononajes</Link> <br/>
+    <Link to ='/Busqueda'> Buscar personajes</Link>
     
     </div>
 

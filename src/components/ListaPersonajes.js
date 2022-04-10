@@ -4,15 +4,7 @@ import React ,{useEffect, useState} from 'react';
 function ListaDePersonajes(){
     const [personajes,setPersonajes]= useState([]);
     const [pagina, setPagina]= useState(2);
-    const [busqueda, setBusqueda] = useState("");
-
-    const valorIngresado=e =>{
-        setBusqueda(e.target.value)
-        filtrar(e.target.value)
-        e.preventDefault();
-    }
-
-   
+    
 
     useEffect(() => {
         fetch ('https://rickandmortyapi.com/api/character/')
@@ -23,16 +15,20 @@ function ListaDePersonajes(){
         .catch(error => console.error(error))
     }, [])
 
-    const filtrar=(terminoDeBusqueda)=>{
-        fetch (`https://rickandmortyapi.com/api/character?name=${terminoDeBusqueda}`)
+    const SiguientePagina =() => {
+         setPagina(pagina +1);
+
+        fetch(`https://rickandmortyapi.com/api/character?page=${pagina}`)
         .then (response => response.json())
-        .then(data => {
-            setPersonajes(data.results) 
+        .then (data => {
+            setPersonajes(data.results)
         })
-        .catch(error => console.error(error))
+        .catch(error => console.log(error));
     }
-    const SiguientePagina =async() => {
-        await setPagina(pagina +1);
+
+    const AnteriorPagina =() => {
+         setPagina(pagina-1);
+        
 
         fetch(`https://rickandmortyapi.com/api/character?page=${pagina}`)
         .then (response => response.json())
@@ -47,18 +43,7 @@ function ListaDePersonajes(){
             <h2>
                 Lista de personajes de Rick Y Morty 
             </h2>
-            <div>
-                <input 
-                className='barraBusqueda'
-                value={busqueda}
-                placeholder="Busqueda por nombre o ID"
-                onChange={valorIngresado}
-                />
-                <button 
-                className='botonDeBusqueda'>
-                    
-                </button>
-            </div>
+            
             <ul>
                 {
                     personajes.map ((personaje, i)=>{
@@ -75,7 +60,10 @@ function ListaDePersonajes(){
                 }
                 
             </ul>
+            <button className='boton' onClick={AnteriorPagina}>Anterior página</button>
+            
             <button className='boton' onClick={SiguientePagina}>Siguiente página</button>
+
             
         </div>
     )

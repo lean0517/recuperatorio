@@ -7,6 +7,7 @@ import Home from "./components/Home"
 import ListaDePersonajes from './components/ListaPersonajes';
 import PersonajeId from './components/PersonajePorId';
 import Error404 from './components/Error404';
+import BuscarPersonaje from './components/Busqueda';
 
 function App() {
   return (
@@ -18,6 +19,8 @@ function App() {
       <Route path='/ListaDePersonajes' element={<ListaDePersonajes/>}/>
 
       <Route path='/PersonajeId/:id' element={<PersonajeId/>}/>
+
+      <Route path='/Busqueda' element={<BuscarPersonaje/>}/>
 
       <Route path='*' element={<Error404/>}/>
 
