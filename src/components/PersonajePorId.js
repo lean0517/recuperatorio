@@ -42,6 +42,7 @@ function PersonajePorId(){
             
             </div>
         </div>
+        <button><Link to ='/ListaDePersonajes'> Volver a la Busqueda</Link></button>
         </div>
     )
     }
