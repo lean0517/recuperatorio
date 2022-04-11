@@ -110,7 +110,8 @@ function ListaDePersonajes(){
               }
               
           </ul>
-          <button className='boton' onClick={PaginaAnterior}>PaginaAnterior</button>    
+           
+          <button className='boton' onClick={PaginaAnterior}>Pagina Anterior</button>    
           <button className='boton' onClick={SiguientePagina}>Siguiente página</button>
           
       </div>

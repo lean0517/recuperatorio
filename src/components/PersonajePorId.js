@@ -18,7 +18,7 @@ function PersonajePorId(){
     if (id>=827){
         return (
             <div><h1>"El personaje no existe"</h1><br/>
-            <Link to ='/'> Volver al Home</Link>
+            <button><Link to ='/'> Volver al Home</Link></button>
             </div>)
             
     }else{
