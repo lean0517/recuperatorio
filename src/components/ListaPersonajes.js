@@ -83,7 +83,7 @@ function ListaDePersonajes(){
               <input 
               className='barraBusqueda'
               value={busqueda}
-              placeholder="Busqueda por nombre o ID"
+              placeholder="Busqueda por Nombre"
               onChange={valorIngresado}
               />
               <button 
