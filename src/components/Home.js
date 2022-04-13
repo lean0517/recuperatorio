@@ -6,7 +6,7 @@ function Home (){
     <h2>Hola, soy el home de Rick y Morty
     </h2>
 
-    <Link to ='/ListaDePersonajes'> Todos los Persononajes</Link> <br/>
+    <button><Link className='boton' to ='/ListaDePersonajes'> Todos los Persononajes</Link> <br/></button>
  
     
     </div>

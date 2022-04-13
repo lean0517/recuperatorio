@@ -40,10 +40,10 @@ function ListaDePersonajes(){
       
          
     }
-    if(personajes==undefined){
+    if(personajes===undefined){
       return (
         <div><h1>"El personaje no existe"</h1><br/>
-        <Link to ='/'> Volver al Home</Link>
+        <button ><Link className='boton' to ='/' > Volver al Home</Link></button>
         </div>
         )
        

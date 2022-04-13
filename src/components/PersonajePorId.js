@@ -13,17 +13,18 @@ function PersonajePorId(){
         fetch( `https://rickandmortyapi.com/api/character/${id}`)
         .then(response => response.json())
         .then(data => setPersonaje(data))
-    }, [])
+    },[])
 
     if (id>=827){
         return (
             <div><h1>"El personaje no existe"</h1><br/>
-            <button><Link to ='/'> Volver al Home</Link></button>
+            <button><Link className='boton' to ='/ListaDePersonajes'> Volver a la lista de personajes</Link></button>
             </div>)
             
     }else{
 
     return (
+        <div>
         <div className='contenedorDetalle'>
             <h3>{Personaje.name}</h3>
         <div className="detallePersonaje">
@@ -42,7 +43,10 @@ function PersonajePorId(){
             
             </div>
         </div>
-        <button><Link to ='/ListaDePersonajes'> Volver a la Busqueda</Link></button>
+       
+        </div> 
+        
+        <button  className='boton'><Link className='boton' to ='/ListaDePersonajes'> Volver a la lista de personajes</Link></button>
         </div>
     )
     }
